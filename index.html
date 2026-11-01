@@ -1,0 +1,850 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Yashogathaaaa 🫩</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600&display=swap');
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    min-height:100vh;
+    background:
+    radial-gradient(circle at 10% 15%,#f8dff0,transparent 35%),
+    radial-gradient(circle at 90% 85%,#dcd5f7,transparent 35%),
+    linear-gradient(135deg,#f9edf5,#e9e4fa,#f7e9f0);
+    font-family:'DM Sans',sans-serif;
+    color:#65556c;
+    padding:25px 14px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow-x:hidden;
+}
+
+.container {
+    width:100%;
+    max-width:440px;
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
+
+.heading {
+    font-family:'Dancing Script',cursive;
+    font-size:35px;
+    color:#9674a4;
+    margin-bottom:5px;
+}
+
+.subheading {
+    font-size:10px;
+    letter-spacing:3px;
+    color:#ad93b1;
+    margin-bottom:35px;
+}
+
+/* MUSIC */
+
+.music-box {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.music-btn {
+    border:1px solid #d5bedb;
+    background:#ffffffaa;
+    color:#886b96;
+    border-radius:30px;
+    padding:10px 19px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:12px;
+}
+
+.music-note {
+    font-size:11px;
+    color:#a18aa6;
+}
+
+/* ENVELOPE */
+
+.envelope-wrapper {
+    width:290px;
+    height:195px;
+    margin:20px auto;
+    position:relative;
+    cursor:pointer;
+    perspective:1000px;
+}
+
+.envelope {
+    position:absolute;
+    inset:0;
+    background:#c8b2d7;
+    border-radius:5px;
+    box-shadow:0 18px 35px #78608730;
+    overflow:hidden;
+}
+
+.envelope:before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:#e7d8ed;
+    clip-path:polygon(0 0,50% 60%,100% 0);
+    z-index:3;
+}
+
+.envelope:after {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:#bba5ce;
+    clip-path:polygon(0 100%,50% 42%,100% 100%);
+    z-index:2;
+}
+
+.flap {
+    position:absolute;
+    inset:0;
+    background:#b49bc9;
+    clip-path:polygon(0 0,100% 0,50% 60%);
+    transform-origin:top;
+    transition:transform .9s ease;
+    z-index:5;
+}
+
+.seal {
+    position:absolute;
+    top:47%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    height:44px;
+    width:44px;
+    background:#9f79aa;
+    border-radius:50%;
+    color:white;
+    display:grid;
+    place-items:center;
+    font-size:23px;
+    z-index:6;
+    transition:.3s;
+}
+
+.envelope-label {
+    position:absolute;
+    z-index:4;
+    bottom:17px;
+    width:100%;
+    color:white;
+    font-family:'Dancing Script',cursive;
+    font-size:23px;
+}
+
+.paper-peek {
+    position:absolute;
+    width:85%;
+    height:160px;
+    left:7.5%;
+    bottom:8px;
+    background:#fffaf6;
+    transition:1s;
+    border-radius:5px;
+    z-index:1;
+}
+
+.envelope-wrapper.open .flap {
+    transform:rotateX(180deg);
+    z-index:0;
+}
+
+.envelope-wrapper.open .seal {
+    opacity:0;
+}
+
+.envelope-wrapper.open .paper-peek {
+    transform:translateY(-130px);
+}
+
+.tap {
+    margin-top:30px;
+    font-size:11px;
+    letter-spacing:2px;
+    color:#a38aaa;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse {
+    50% {opacity:.4;}
+}
+
+/* BOOK */
+
+.book {
+    display:none;
+    margin-top:15px;
+    animation:appear 1s ease;
+}
+
+@keyframes appear {
+    from {opacity:0;transform:translateY(20px);}
+    to {opacity:1;transform:translateY(0);}
+}
+
+.page {
+    min-height:490px;
+    background:
+    linear-gradient(135deg,#fffdfb,#fff8f7);
+    border:1px solid #eadce9;
+    border-radius:7px;
+    padding:30px 24px;
+    box-shadow:0 15px 40px #76618720;
+    text-align:left;
+    position:relative;
+    display:none;
+}
+
+.page.active {
+    display:block;
+    animation:appear .45s ease;
+}
+
+.page-number {
+    text-align:center;
+    font-size:10px;
+    letter-spacing:3px;
+    color:#b39bb5;
+    margin-bottom:20px;
+}
+
+.page-title {
+    text-align:center;
+    font-family:'Dancing Script',cursive;
+    font-size:30px;
+    color:#9673a2;
+    margin-bottom:22px;
+}
+
+.page p {
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    line-height:1.75;
+    color:#66596c;
+    margin-bottom:17px;
+}
+
+.page .highlight {
+    color:#a17bab;
+    font-style:italic;
+}
+
+.page-emoji {
+    text-align:center;
+    font-size:37px;
+    margin:20px 0;
+}
+
+.decoration {
+    text-align:center;
+    color:#c6a6c9;
+    letter-spacing:8px;
+    margin:20px 0;
+}
+
+.page-footer {
+    position:absolute;
+    bottom:15px;
+    left:0;
+    width:100%;
+    text-align:center;
+    font-family:'Dancing Script',cursive;
+    font-size:17px;
+    color:#b29ab8;
+}
+
+/* NAVIGATION */
+
+.navigation {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:18px;
+    gap:12px;
+}
+
+.nav-btn {
+    background:#a98ab6;
+    border:none;
+    color:white;
+    border-radius:25px;
+    padding:12px 22px;
+    font-family:inherit;
+    font-size:12px;
+    cursor:pointer;
+}
+
+.nav-btn:disabled {
+    opacity:.35;
+    cursor:not-allowed;
+}
+
+.counter {
+    font-size:11px;
+    color:#9e86a5;
+}
+
+.end-note {
+    margin-top:20px;
+    font-family:'Dancing Script',cursive;
+    font-size:23px;
+    color:#9878a4;
+}
+
+/* FLOATING FLOWERS */
+
+.flower {
+    position:fixed;
+    bottom:-30px;
+    color:#b99ac7;
+    opacity:.5;
+    pointer-events:none;
+    animation:float 8s linear forwards;
+    z-index:0;
+}
+
+@keyframes float {
+    to {
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+@media(max-width:360px) {
+    .page {
+        padding:25px 18px;
+        min-height:520px;
+    }
+    .page p {
+        font-size:19px;
+    }
+    .envelope-wrapper {
+        width:260px;
+        height:180px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="heading">For Yashogathaaaa ♡</div>
+    <div class="subheading">A LITTLE BOOK OF APPRECIATION</div>
+
+    <!-- MUSIC -->
+    <div class="music-box">
+        <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+            ♫ Play music
+        </button>
+        <span class="music-note">a little melody for you</span>
+    </div>
+
+    <audio id="song" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ENVELOPE -->
+    <div class="envelope-wrapper" id="envelope"
+         onclick="openLetter()">
+
+        <div class="paper-peek"></div>
+        <div class="envelope">
+            <div class="envelope-label">
+                To: My Yashogathaaaa 🫩
+            </div>
+        </div>
+        <div class="flap"></div>
+        <div class="seal">♡</div>
+    </div>
+
+    <div class="tap" id="tapText">
+        ✧ TAP TO OPEN YOUR LITTLE SURPRISE ✧
+    </div>
+
+    <!-- 8 PAGE LETTERBOOK -->
+    <div class="book" id="book">
+
+        <!-- PAGE 1 -->
+        <div class="page active">
+            <div class="page-number">01 — 08</div>
+            <div class="page-title">Dear Yogyata ♡</div>
+
+            <p>
+                First of all, YASHOGATHAAAA 😭
+                I hope you realise that this nickname
+                is permanent. There's no cancellation,
+                no refund and absolutely no escape.
+            </p>
+
+            <p>
+                Anyway, jokes apart, I wanted to
+                dedicate a little something to you.
+                Not because there's a special occasion,
+                but simply because some people deserve
+                to be appreciated for who they are.
+            </p>
+
+            <p>
+                And today, this little book is all yours.
+            </p>
+
+            <div class="decoration">✿ ♡ ✿</div>
+
+            <p>
+                So take a little break from everything
+                and read this slowly.
+            </p>
+
+            <div class="page-footer">A little something for you ♡</div>
+        </div>
+
+        <!-- PAGE 2 -->
+        <div class="page">
+            <div class="page-number">02 — 08</div>
+            <div class="page-title">The strength I notice</div>
+
+            <p>
+                You know, one thing I've genuinely
+                admired about you is how you manage
+                to keep going despite everything
+                happening around you.
+            </p>
+
+            <p>
+                I know things at home aren't always
+                easy. Sometimes the environment that
+                should feel comforting can become
+                overwhelming instead.
+            </p>
+
+            <p>
+                And even when you don't receive the
+                understanding or kindness you deserve,
+                you somehow find a way to gather
+                yourself and continue.
+            </p>
+
+            <p>
+                I don't know if you realise how much
+                strength that takes, but I do notice it.
+            </p>
+
+            <div class="page-emoji">🌷</div>
+
+            <div class="page-footer">Your strength matters ♡</div>
+        </div>
+
+        <!-- PAGE 3 -->
+        <div class="page">
+            <div class="page-number">03 — 08</div>
+            <div class="page-title">But here's something...</div>
+
+            <p>
+                I want you to understand one thing:
+                being strong doesn't mean you have
+                to handle everything without feeling
+                anything.
+            </p>
+
+            <p>
+                You don't have to smile every day.
+                You don't have to pretend you're okay
+                when you're not.
+            </p>
+
+            <p>
+                You can have bad days. You can feel
+                exhausted. You can be confused,
+                emotional or simply not in the mood
+                to deal with anything.
+            </p>
+
+            <p>
+                <span class="highlight">
+                You don't become any less strong
+                just because you need a moment
+                to breathe.
+                </span>
+            </p>
+
+            <div class="decoration">♡ ✧ ♡</div>
+
+            <p>
+                Please remember that, okay?
+            </p>
+
+            <div class="page-footer">You are human, too ♡</div>
+        </div>
+
+        <!-- PAGE 4 -->
+        <div class="page">
+            <div class="page-number">04 — 08</div>
+            <div class="page-title">A little reminder</div>
+
+            <p>
+                Never let the way someone treats you
+                decide how much you think you deserve.
+            </p>
+
+            <p>
+                You deserve to be heard without having
+                to repeat yourself a hundred times.
+                You deserve kindness without having
+                to earn it.
+            </p>
+
+            <p>
+                You deserve people who understand that
+                sometimes silence means you're tired
+                and not that you have nothing to say.
+            </p>
+
+            <p>
+                And most importantly, you deserve
+                to feel comfortable being yourself.
+            </p>
+
+            <div class="page-emoji">🪻</div>
+
+            <p>
+                Your worth was never supposed to
+                depend on anybody else's behaviour.
+            </p>
+
+            <div class="page-footer">Never forget your worth ♡</div>
+        </div>
+
+        <!-- PAGE 5 -->
+        <div class="page">
+            <div class="page-number">05 — 08</div>
+            <div class="page-title">Your patented emoji 😭</div>
+
+            <p>
+                Okay, now let's discuss something
+                extremely important.
+            </p>
+
+            <p>
+                The legendary, irreplaceable,
+                internationally recognised emoji:
+            </p>
+
+            <div class="page-emoji">🫩</div>
+
+            <p>
+                At this point, I genuinely believe
+                you have patented this emoji.
+                Nobody is allowed to use it without
+                paying royalties to Yogyata Industries.
+            </p>
+
+            <p>
+                Whenever I see it, I automatically
+                think of you. It's basically your
+                digital signature now.
+            </p>
+
+            <p>
+                And Yashogathaaaa? That name is
+                staying forever. Don't even argue. 😭
+            </p>
+
+            <div class="page-footer">CEO of 🫩 Industries</div>
+        </div>
+
+        <!-- PAGE 6 -->
+        <div class="page">
+            <div class="page-number">06 — 08</div>
+            <div class="page-title">For your difficult days</div>
+
+            <p>
+                Whenever life feels overwhelming,
+                I hope you don't become too hard
+                on yourself.
+            </p>
+
+            <p>
+                You don't need to have everything
+                figured out right now. You don't
+                need to prove your strength to
+                anybody.
+            </p>
+
+            <p>
+                Take your time. Enjoy the little
+                things. Laugh at silly jokes.
+                Listen to your favourite songs.
+                Give yourself the kindness you
+                might be missing elsewhere.
+            </p>
+
+            <p>
+                And please, don't forget that
+                asking someone for support isn't
+                a sign of weakness.
+            </p>
+
+            <div class="decoration">✿ ✧ ✿</div>
+
+            <p>
+                I hope your difficult days become
+                fewer and your peaceful days
+                become more frequent.
+            </p>
+
+            <div class="page-footer">Softer days are coming ♡</div>
+        </div>
+
+        <!-- PAGE 7 -->
+        <div class="page">
+            <div class="page-number">07 — 08</div>
+            <div class="page-title">A wish for you</div>
+
+            <p>
+                If I could wish a few things for you,
+                I'd wish for a home filled with
+                understanding, conversations
+                without fear and affection that
+                doesn't come with conditions.
+            </p>
+
+            <p>
+                I'd wish for people who appreciate
+                your presence, notice your efforts
+                and remind you that you're important.
+            </p>
+
+            <p>
+                I'd wish for mornings when you wake
+                up feeling peaceful, evenings when
+                your mind feels lighter and days
+                when you laugh without worrying
+                about anything.
+            </p>
+
+            <p>
+                Most importantly, I'd wish for you
+                to look at yourself with the same
+                kindness that you deserve from others.
+            </p>
+
+            <div class="page-emoji">🌸</div>
+
+            <div class="page-footer">You deserve beautiful things ♡</div>
+        </div>
+
+        <!-- PAGE 8 -->
+        <div class="page">
+            <div class="page-number">08 — 08</div>
+            <div class="page-title">One last thing...</div>
+
+            <p>
+                I don't know what every chapter
+                of your life will look like, but
+                I genuinely hope the upcoming ones
+                treat you more gently.
+            </p>
+
+            <p>
+                Keep your little quirks, your
+                random conversations, your
+                expressions and, obviously,
+                your extremely copyrighted 🫩.
+            </p>
+
+            <p>
+                Never lose the little things that
+                make you YOU.
+            </p>
+
+            <p>
+                And whenever you feel like the
+                world is asking too much of you,
+                remember that you deserve a little
+                kindness from yourself, too.
+            </p>
+
+            <p>
+                Thank you for being you, Yogyata.
+                I'm genuinely glad our paths crossed.
+            </p>
+
+            <div class="decoration">♡ ✿ ♡</div>
+
+            <p>
+                Stay strong, but don't forget
+                to let yourself rest.
+            </p>
+
+            <div class="signature"
+                 style="font-family:'Dancing Script';text-align:right;color:#9873a5;font-size:25px;">
+                With lots of good wishes,<br>
+                Your friend ♡
+            </div>
+
+            <div class="page-footer">THE END? NEVER OF 🫩</div>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn"
+                    onclick="changePage(-1)" disabled>
+                ← Previous
+            </button>
+
+            <span class="counter" id="counter">
+                Page 1 of 8
+            </span>
+
+            <button class="nav-btn" id="nextBtn"
+                    onclick="changePage(1)">
+                Next →
+            </button>
+        </div>
+
+        <div class="end-note" id="endNote">
+            One page at a time, little human ♡
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+let opened = false;
+let currentPage = 0;
+
+const pages = document.querySelectorAll(".page");
+const totalPages = pages.length;
+
+const song = document.getElementById("song");
+const musicBtn = document.getElementById("musicBtn");
+
+function toggleMusic() {
+    if (song.paused) {
+        song.play().then(() => {
+            musicBtn.innerText = "♫ Pause music";
+        }).catch(() => {
+            musicBtn.innerText = "♫ Tap to play music";
+        });
+    } else {
+        song.pause();
+        musicBtn.innerText = "♫ Play music";
+    }
+}
+
+function openLetter() {
+    if (opened) return;
+    opened = true;
+
+    const envelope = document.getElementById("envelope");
+
+    envelope.classList.add("open");
+    document.getElementById("tapText").style.display = "none";
+
+    // Try starting music; some browsers require a fresh tap.
+    song.play().then(() => {
+        musicBtn.innerText = "♫ Pause music";
+    }).catch(() => {
+        musicBtn.innerText = "♫ Play music";
+    });
+
+    setTimeout(() => {
+        envelope.style.display = "none";
+
+        const book = document.getElementById("book");
+        book.style.display = "block";
+
+        book.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+        showPage(0);
+    }, 1100);
+}
+
+function showPage(index) {
+    pages.forEach((page, i) => {
+        page.classList.toggle("active", i === index);
+    });
+
+    document.getElementById("counter").innerText =
+        `Page ${index + 1} of ${totalPages}`;
+
+    document.getElementById("prevBtn").disabled =
+        index === 0;
+
+    document.getElementById("nextBtn").disabled =
+        index === totalPages - 1;
+
+    document.getElementById("endNote").innerText =
+        index === totalPages - 1
+        ? "Made with a little care & lots of 🫩 ♡"
+        : "One page at a time, little human ♡";
+}
+
+function changePage(direction) {
+    const next = currentPage + direction;
+
+    if (next < 0 || next >= totalPages) return;
+
+    currentPage = next;
+    showPage(currentPage);
+
+    document.getElementById("book").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+// Floating decorations
+const symbols = ["✿", "❀", "♡", "✧"];
+
+function createFlower() {
+    const flower = document.createElement("div");
+
+    flower.className = "flower";
+    flower.innerText =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.fontSize =
+        (12 + Math.random() * 15) + "px";
+
+    flower.style.animationDuration =
+        (6 + Math.random() * 5) + "s";
+
+    document.body.appendChild(flower);
+
+    setTimeout(() => flower.remove(), 11000);
+}
+
+setInterval(createFlower, 900);
+</script>
+
+</body>
+</html>
