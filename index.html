@@ -60,6 +60,7 @@ body {
     align-items:center;
     gap:12px;
     margin-bottom:25px;
+    flex-wrap:wrap;
 }
 
 .music-btn {
@@ -190,7 +191,7 @@ body {
     50% {opacity:.4;}
 }
 
-/* BOOK */
+/* LETTERBOOK */
 
 .book {
     display:none;
@@ -205,8 +206,7 @@ body {
 
 .page {
     min-height:490px;
-    background:
-    linear-gradient(135deg,#fffdfb,#fff8f7);
+    background:linear-gradient(135deg,#fffdfb,#fff8f7);
     border:1px solid #eadce9;
     border-radius:7px;
     padding:30px 24px;
@@ -274,6 +274,13 @@ body {
     color:#b29ab8;
 }
 
+.signature {
+    font-family:'Dancing Script',cursive;
+    text-align:right;
+    color:#9873a5;
+    font-size:25px;
+}
+
 /* NAVIGATION */
 
 .navigation {
@@ -312,7 +319,82 @@ body {
     color:#9878a4;
 }
 
-/* FLOATING FLOWERS */
+/* BONUS SECTION */
+
+.bonus-section {
+    margin-top:30px;
+    animation:appear 1s ease;
+    padding-bottom:20px;
+}
+
+.bonus-heading {
+    font-family:'Dancing Script',cursive;
+    font-size:28px;
+    color:#9673a2;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.bonus-card {
+    background:linear-gradient(145deg,#fffdfb,#f8edf7);
+    border:1px solid #ead8eb;
+    border-radius:12px;
+    padding:25px 20px;
+    margin-bottom:18px;
+    box-shadow:0 8px 20px #76618715;
+}
+
+.bonus-emoji {
+    font-size:35px;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.bonus-card h3 {
+    font-family:'Dancing Script',cursive;
+    font-size:27px;
+    color:#9875a5;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.bonus-card p {
+    font-family:'Cormorant Garamond',serif;
+    font-size:19px;
+    line-height:1.7;
+    margin-bottom:12px;
+    color:#66596c;
+}
+
+.bonus-caption {
+    text-align:center;
+    color:#ad8db4;
+    font-family:'Dancing Script',cursive;
+    font-size:20px;
+    margin-top:15px;
+}
+
+.bonus-final {
+    font-family:'Dancing Script',cursive;
+    font-size:24px;
+    color:#9873a5;
+    text-align:center;
+    padding:25px 10px;
+    line-height:1.6;
+}
+
+.bonus-tag {
+    display:inline-block;
+    padding:7px 13px;
+    background:#f1e4f2;
+    border-radius:20px;
+    color:#9873a5;
+    font-size:10px;
+    letter-spacing:1px;
+    margin-bottom:14px;
+}
+
+/* FLOWERS */
 
 .flower {
     position:fixed;
@@ -333,12 +415,14 @@ body {
 
 @media(max-width:360px) {
     .page {
-        padding:25px 18px;
+        padding:25px 18px 45px;
         min-height:520px;
     }
+
     .page p {
         font-size:19px;
     }
+
     .envelope-wrapper {
         width:260px;
         height:180px;
@@ -354,9 +438,11 @@ body {
     <div class="heading">For Yashogathaaaa ♡</div>
     <div class="subheading">A LITTLE BOOK OF APPRECIATION</div>
 
-    <!-- MUSIC -->
+    <!-- MUSIC PLAYER -->
+
     <div class="music-box">
-        <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+        <button class="music-btn" id="musicBtn"
+                onclick="toggleMusic()">
             ♫ Play music
         </button>
         <span class="music-note">a little melody for you</span>
@@ -367,28 +453,35 @@ body {
     </audio>
 
     <!-- ENVELOPE -->
+
     <div class="envelope-wrapper" id="envelope"
          onclick="openLetter()">
 
         <div class="paper-peek"></div>
+
         <div class="envelope">
             <div class="envelope-label">
                 To: My Yashogathaaaa 🫩
             </div>
         </div>
+
         <div class="flap"></div>
         <div class="seal">♡</div>
+
     </div>
 
     <div class="tap" id="tapText">
         ✧ TAP TO OPEN YOUR LITTLE SURPRISE ✧
     </div>
 
-    <!-- 8 PAGE LETTERBOOK -->
+    <!-- LETTERBOOK -->
+
     <div class="book" id="book">
 
         <!-- PAGE 1 -->
+
         <div class="page active">
+
             <div class="page-number">01 — 08</div>
             <div class="page-title">Dear Yogyata ♡</div>
 
@@ -422,7 +515,9 @@ body {
         </div>
 
         <!-- PAGE 2 -->
+
         <div class="page">
+
             <div class="page-number">02 — 08</div>
             <div class="page-title">The strength I notice</div>
 
@@ -458,7 +553,9 @@ body {
         </div>
 
         <!-- PAGE 3 -->
+
         <div class="page">
+
             <div class="page-number">03 — 08</div>
             <div class="page-title">But here's something...</div>
 
@@ -500,7 +597,9 @@ body {
         </div>
 
         <!-- PAGE 4 -->
+
         <div class="page">
+
             <div class="page-number">04 — 08</div>
             <div class="page-title">A little reminder</div>
 
@@ -538,7 +637,9 @@ body {
         </div>
 
         <!-- PAGE 5 -->
+
         <div class="page">
+
             <div class="page-number">05 — 08</div>
             <div class="page-title">Your patented emoji 😭</div>
 
@@ -576,7 +677,9 @@ body {
         </div>
 
         <!-- PAGE 6 -->
+
         <div class="page">
+
             <div class="page-number">06 — 08</div>
             <div class="page-title">For your difficult days</div>
 
@@ -619,7 +722,9 @@ body {
         </div>
 
         <!-- PAGE 7 -->
+
         <div class="page">
+
             <div class="page-number">07 — 08</div>
             <div class="page-title">A wish for you</div>
 
@@ -657,7 +762,9 @@ body {
         </div>
 
         <!-- PAGE 8 -->
+
         <div class="page">
+
             <div class="page-number">08 — 08</div>
             <div class="page-title">One last thing...</div>
 
@@ -699,8 +806,7 @@ body {
                 to let yourself rest.
             </p>
 
-            <div class="signature"
-                 style="font-family:'Dancing Script';text-align:right;color:#9873a5;font-size:25px;">
+            <div class="signature">
                 With lots of good wishes,<br>
                 Your friend ♡
             </div>
@@ -708,8 +814,10 @@ body {
             <div class="page-footer">THE END? NEVER OF 🫩</div>
         </div>
 
-        <!-- CONTROLS -->
+        <!-- NAVIGATION -->
+
         <div class="navigation">
+
             <button class="nav-btn" id="prevBtn"
                     onclick="changePage(-1)" disabled>
                 ← Previous
@@ -723,10 +831,119 @@ body {
                     onclick="changePage(1)">
                 Next →
             </button>
+
         </div>
 
         <div class="end-note" id="endNote">
             One page at a time, little human ♡
+        </div>
+
+        <!-- BONUS SECTION -->
+
+        <div class="bonus-section" id="bonus">
+
+            <div class="bonus-heading">
+                A little bonus for Yashogathaaaa ♡
+            </div>
+
+            <!-- ATIF ASLAM -->
+
+            <div class="bonus-card">
+
+                <div class="bonus-emoji">🎶</div>
+
+                <span class="bonus-tag">
+                    HER MUSIC TASTE
+                </span>
+
+                <h3>For the Atif Aslam girl</h3>
+
+                <p>
+                    I guess some people have a playlist,
+                    and then there's you with your
+                    Atif Aslam obsession. 😭
+                </p>
+
+                <p>
+                    There's something special about
+                    the way music can make ordinary
+                    moments feel a little more
+                    meaningful.
+                </p>
+
+                <p>
+                    May your favourite songs always
+                    find you at the right moments,
+                    and may every melody bring
+                    a little peace to your heart.
+                </p>
+
+                <div class="bonus-caption">
+                    Certified Atif Aslam enthusiast ♡
+                </div>
+
+            </div>
+
+            <!-- VARUN DHAWAN -->
+
+            <div class="bonus-card">
+
+                <div class="bonus-emoji">🎬</div>
+
+                <span class="bonus-tag">
+                    HER BOLLYWOOD CORNER
+                </span>
+
+                <h3>For the Varun Dhawan fan</h3>
+
+                <p>
+                    And obviously, we cannot forget
+                    your Varun Dhawan movies. 😭
+                </p>
+
+                <p>
+                    I hope your life gets a little
+                    Bollywood magic too:
+                    unexpected happiness, hilarious
+                    moments, beautiful memories and
+                    a lot of reasons to smile.
+                </p>
+
+                <p>
+                    May you always find a reason
+                    to laugh, dance and enjoy the
+                    little scenes life brings.
+                </p>
+
+                <div class="bonus-caption">
+                    Bollywood fan club president ♡
+                </div>
+
+            </div>
+
+            <!-- FINAL MESSAGE -->
+
+            <div class="bonus-final">
+
+                Your favourites, your little world,
+                and your patented 🫩.
+
+                <br><br>
+
+                Never change, Yashogathaaaa! ♡
+
+                <br><br>
+
+                <span style="font-size:18px;">
+                    Made with care, just for you.
+                </span>
+
+                <div style="font-size:30px;margin-top:15px;">
+                    🌷 ♡ 🫩 ♡ 🌷
+                </div>
+
+            </div>
+
         </div>
 
     </div>
@@ -734,6 +951,7 @@ body {
 </div>
 
 <script>
+
 let opened = false;
 let currentPage = 0;
 
@@ -744,28 +962,36 @@ const song = document.getElementById("song");
 const musicBtn = document.getElementById("musicBtn");
 
 function toggleMusic() {
+
     if (song.paused) {
+
         song.play().then(() => {
             musicBtn.innerText = "♫ Pause music";
         }).catch(() => {
-            musicBtn.innerText = "♫ Tap to play music";
+            musicBtn.innerText = "♫ Play music";
         });
+
     } else {
+
         song.pause();
         musicBtn.innerText = "♫ Play music";
+
     }
 }
 
 function openLetter() {
+
     if (opened) return;
+
     opened = true;
 
     const envelope = document.getElementById("envelope");
 
     envelope.classList.add("open");
+
     document.getElementById("tapText").style.display = "none";
 
-    // Try starting music; some browsers require a fresh tap.
+    // Start background music
     song.play().then(() => {
         musicBtn.innerText = "♫ Pause music";
     }).catch(() => {
@@ -773,23 +999,29 @@ function openLetter() {
     });
 
     setTimeout(() => {
+
         envelope.style.display = "none";
 
         const book = document.getElementById("book");
         book.style.display = "block";
+
+        showPage(0);
 
         book.scrollIntoView({
             behavior: "smooth",
             block: "start"
         });
 
-        showPage(0);
     }, 1100);
+
 }
 
 function showPage(index) {
+
     pages.forEach((page, i) => {
+
         page.classList.toggle("active", i === index);
+
     });
 
     document.getElementById("counter").innerText =
@@ -805,33 +1037,45 @@ function showPage(index) {
         index === totalPages - 1
         ? "Made with a little care & lots of 🫩 ♡"
         : "One page at a time, little human ♡";
+
+    // Show bonus only after the eighth page
+    document.getElementById("bonus").style.display =
+        index === totalPages - 1 ? "block" : "none";
+
 }
 
 function changePage(direction) {
+
     const next = currentPage + direction;
 
     if (next < 0 || next >= totalPages) return;
 
     currentPage = next;
+
     showPage(currentPage);
 
     document.getElementById("book").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
+
 }
 
-// Floating decorations
+// Floating flowers
+
 const symbols = ["✿", "❀", "♡", "✧"];
 
 function createFlower() {
+
     const flower = document.createElement("div");
 
     flower.className = "flower";
+
     flower.innerText =
         symbols[Math.floor(Math.random() * symbols.length)];
 
     flower.style.left = Math.random() * 100 + "vw";
+
     flower.style.fontSize =
         (12 + Math.random() * 15) + "px";
 
@@ -840,10 +1084,14 @@ function createFlower() {
 
     document.body.appendChild(flower);
 
-    setTimeout(() => flower.remove(), 11000);
+    setTimeout(() => {
+        flower.remove();
+    }, 11000);
+
 }
 
 setInterval(createFlower, 900);
+
 </script>
 
 </body>
